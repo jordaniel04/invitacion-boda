@@ -71,8 +71,8 @@ section {
     position: absolute;
     inset: 0;
     background: url('assets/portada.jpeg') center/cover no-repeat;
-    opacity: 0.25;
-    /* Fondo opaco/tenue */
+    opacity: 0.55;
+    /* Fondo un poco más visible como se pidió */
     z-index: 0;
     pointer-events: none;
 }
@@ -223,7 +223,7 @@ section {
     position: absolute;
     inset: 0;
     background: url('assets/nos-casamos.jpg') center/cover no-repeat;
-    opacity: 0.15;
+    opacity: 0.35;
     /* Sutil y elegante */
     z-index: 0;
 }
@@ -901,4 +901,34 @@ h2.section-title {
 /* Si está pausado, las barras se quedan cortas */
 .music-btn:not(.playing) .bar {
     height: 4px;
+}
+
+/* ===========================
+   FINAL THANK YOU SECTION
+   =========================== */
+#thanks {
+    background-color: var(--white);
+}
+
+.final-photo {
+    width: 100%;
+    max-width: 450px;
+    /* Un poco más pequeña para asegurar que quepa en 100vh */
+    max-height: 45vh;
+    /* Evitar que empuje la sección hacia abajo en pantallas bajas */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    margin: 1.5rem auto;
+    display: block;
+}
+
+#thanks .section-title {
+    margin-bottom: 0.5rem;
+}
+
+#thanks .subtitle-text {
+    font-size: 1.8rem;
+    color: var(--dusty-rose);
+    margin-bottom: 2rem;
 }
