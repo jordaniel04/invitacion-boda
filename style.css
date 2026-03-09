@@ -28,7 +28,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -47,6 +47,7 @@ body.loaded {
 
 section {
     scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /* ===========================
@@ -206,7 +207,8 @@ section {
     align-items: center;
     text-align: center;
     overflow: hidden;
-    padding: 10rem 2rem;
+    padding: 3rem 1.5rem;
+    /* Menos padding para que encaje mejor en una sola pantalla */
     background-color: var(--cream);
     transition: background-color 0.5s ease;
 }
