@@ -2,16 +2,14 @@
    DESIGN SYSTEM
    =========================== */
 :root {
-    --dusty-rose: #8B0000;
-    /* Un tono más borgoña/vino */
-    --deep-rose: #5D0000;
-    --cream: #FDF5E6;
-    /* Un color crema más suave */
-    --taupe: #7A6459;
+    --dusty-rose: #bd867f;
+    --deep-rose: #e7a99a;
+    --taupe: #deab98;
+    --cream: #f1e0d0;
     --white: #ffffff;
     --gold: #D4A373;
-    --text-dark: #1A1A1A;
-    --text-light: #4A4A4A;
+    --text-dark: #3A2E2A;
+    --text-light: #7A6459;
     --font-script: 'Great Vibes', cursive;
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
@@ -65,6 +63,24 @@ section {
     z-index: 9999;
     transition: opacity 1s ease, visibility 1s ease;
     perspective: 1000px;
+    overflow: hidden;
+}
+
+#envelope-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('assets/portada.jpeg') center/cover no-repeat;
+    opacity: 0.25;
+    /* Fondo opaco/tenue */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Asegurar que el contenido esté sobre la imagen */
+.heart-box {
+    position: relative;
+    z-index: 2;
 }
 
 #envelope-wrapper.opened {
@@ -197,15 +213,32 @@ section {
 
 /* Color Rotation */
 #welcome {
-    background-color: var(--cream);
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+#welcome::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('assets/nos-casamos.jpg') center/cover no-repeat;
+    opacity: 0.15;
+    /* Sutil y elegante */
+    z-index: 0;
+}
+
+#welcome .section-body {
+    position: relative;
+    z-index: 1;
 }
 
 #couple {
-    background-color: var(--white);
+    background-color: var(--cream);
 }
 
 #parents {
-    background-color: var(--cream);
+    background-color: var(--white);
 }
 
 #countdown-section {
