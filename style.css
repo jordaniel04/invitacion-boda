@@ -1,0 +1,871 @@
+/* ===========================
+   DESIGN SYSTEM
+   =========================== */
+:root {
+    --dusty-rose: #8B0000;
+    /* Un tono más borgoña/vino */
+    --deep-rose: #5D0000;
+    --cream: #FDF5E6;
+    /* Un color crema más suave */
+    --taupe: #7A6459;
+    --white: #ffffff;
+    --gold: #D4A373;
+    --text-dark: #1A1A1A;
+    --text-light: #4A4A4A;
+    --font-script: 'Great Vibes', cursive;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+/* ===========================
+   RESET & BASE
+   =========================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--text-dark);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    /* Efecto de entrada para ocultar carga de fuentes */
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+section {
+    scroll-snap-align: start;
+}
+
+/* ===========================
+   HEART CHOCOLATE BOX
+   =========================== */
+#envelope-wrapper {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--cream);
+    z-index: 9999;
+    transition: opacity 1s ease, visibility 1s ease;
+    perspective: 1000px;
+}
+
+#envelope-wrapper.opened {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.heart-box {
+    position: relative;
+    width: min(300px, 80vw);
+    height: min(270px, 72vw);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.heart-lid,
+.heart-base {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.heart-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.heart-lid {
+    z-index: 5;
+    color: #8B0000;
+    /* Rojo chocolate oscuro */
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+    transform-origin: top left;
+}
+
+.heart-base {
+    z-index: 2;
+    color: #5D0000;
+    /* Más oscuro para la base */
+}
+
+/* Animación de apertura */
+.heart-box.clicked .heart-lid {
+    transform: rotate3d(1, -1, 0, 110deg) translateZ(50px) translateY(-50px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.heart-monogram {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #F5E6D3;
+    padding-bottom: 15%;
+    /* Ajuste por la forma del corazón */
+}
+
+.heart-monogram .initials {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.heart-monogram .tap-hint {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Bombones internos (Simulación) */
+.heart-chocolates {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20%;
+}
+
+.choco {
+    width: 30px;
+    height: 30px;
+    background: #3E1E1E;
+    border-radius: 50%;
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.5), 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.choco.c2 {
+    border-radius: 4px;
+    transform: rotate(45deg);
+}
+
+.choco.c3 {
+    background: #E7A99A;
+}
+
+
+/* ===========================
+   FULL-SCREEN SECTIONS
+   =========================== */
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 10rem 2rem;
+    background-color: var(--cream);
+    transition: background-color 0.5s ease;
+}
+
+/* Color Rotation */
+#welcome {
+    background-color: var(--cream);
+}
+
+#couple {
+    background-color: var(--white);
+}
+
+#parents {
+    background-color: var(--cream);
+}
+
+#countdown-section {
+    background-color: var(--deep-rose);
+    color: var(--white);
+}
+
+#details {
+    background-color: var(--white);
+}
+
+#gifts {
+    background-color: var(--cream);
+}
+
+#rsvp {
+    background-color: var(--dusty-rose);
+    color: var(--white);
+}
+
+#rsvp .section-title,
+#rsvp .subtitle-text,
+#rsvp .divider-icon,
+#countdown-section .section-title,
+#countdown-section .subtitle-text,
+#countdown-section .divider-icon {
+    color: var(--white);
+}
+
+#rsvp .divider::before,
+#rsvp .divider::after,
+#countdown-section .divider::before,
+#countdown-section .divider::after {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#rsvp .btn-rsvp {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+#rsvp .btn-rsvp:hover {
+    background: var(--white);
+    color: var(--dusty-rose);
+}
+
+#couple .section-body {
+    margin-top: 2rem;
+    /* Espacio extra para la guirnalda */
+}
+
+/* ===========================
+   DECORATIVE FLOWER IMAGES
+   =========================== */
+.deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    width: 50vw;
+    /* Ocupa hasta la mitad de la sección */
+    max-width: 600px;
+    height: auto;
+    opacity: 0.45;
+    /* Más opacas/tenues para no saturar siendo tan grandes */
+}
+
+/* Corner positions */
+.deco-top-left {
+    top: 0;
+    left: 0;
+}
+
+.deco-top-right {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.deco-bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
+}
+
+.deco-bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: scale(-1, -1);
+}
+
+/* Corner small (for 2.png bouquets) */
+.deco-corner-br {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: clamp(150px, 30vw, 300px);
+    opacity: 0.7;
+}
+
+/* Garland horizontal (for 3.png) */
+.deco-garland-top {
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(350px, 90vw, 800px);
+    /* Gigantes pero tenues */
+    opacity: 0.25;
+    /* Opción 3: Muy tenue para no tapar el texto */
+    filter: blur(1px);
+    /* Suavizado extra */
+}
+
+.deco-garland-bottom {
+    bottom: -4rem;
+    left: 50%;
+    transform: translateX(-50%) scaleY(-1);
+    width: clamp(300px, 80vw, 650px);
+    opacity: 0.7;
+}
+
+/* ===========================
+   SECTION BODY (above flowers)
+   =========================== */
+.section-body {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    /* Incrementado para permitir nombres en una sola línea */
+    margin: 0 auto;
+}
+
+/* ===========================
+   TYPOGRAPHY
+   =========================== */
+h1.names {
+    font-family: var(--font-script);
+    font-size: clamp(4.5rem, 15vw, 9rem);
+    /* Mucho más grande */
+    color: var(--dusty-rose);
+    line-height: 1.2;
+    margin-top: 1rem;
+    white-space: nowrap;
+    /* Evita que se divida en dos líneas */
+}
+
+h1.names .ampersand {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.8em;
+    /* Un poco más pequeña proporcionalmente */
+    margin: 0 0.2rem;
+    color: var(--text-dark);
+    /* Color más sobrio para el símbolo */
+}
+
+h2.section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    /* Títulos más imponentes */
+    color: var(--text-dark);
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.monogram {
+    font-family: var(--font-serif);
+    font-size: clamp(5rem, 12vw, 6rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-family: var(--font-script);
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--dusty-rose);
+    margin: 1rem 0 2rem;
+}
+
+.verse {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    line-height: 2.2;
+    /* Interlineado generoso */
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.verse-ref {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-top: 1.5rem;
+    display: block;
+}
+
+.subtitle-text {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* ===========================
+   GOLD DIVIDER
+   =========================== */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    width: 80%;
+    max-width: 300px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+}
+
+.divider-icon {
+    color: var(--gold);
+    font-size: 1rem;
+}
+
+/* ===========================
+   COUPLE PHOTOS
+   =========================== */
+.couple-photo {
+    width: 100%;
+    max-width: 420px;
+    height: clamp(280px, 55vw, 450px);
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    margin: 1rem auto;
+    display: block;
+}
+
+/* ===========================
+   COUNTDOWN SECTION
+   =========================== */
+#countdown-section {
+    background: var(--deep-rose);
+    color: white;
+}
+
+#countdown-section h2.section-title {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: clamp(0.3rem, 2vw, 1rem);
+    width: 100%;
+    max-width: 480px;
+    margin: 1.5rem auto 0;
+}
+
+#countdown .time-block {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(0.2rem, 1vw, 0.5rem);
+    min-width: 0;
+}
+
+#countdown span {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+#countdown small {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 0.4rem;
+}
+
+.date-display {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 3.5vw, 1.4rem);
+    letter-spacing: 3px;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+}
+
+/* ===========================
+   PARENTS SECTION
+   =========================== */
+.parents-grid {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.parent-group h3 {
+    font-family: var(--font-serif);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--dusty-rose);
+    margin-bottom: 1rem;
+}
+
+.parent-group p {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    margin: 0.3rem 0;
+    color: var(--text-dark);
+}
+
+/* ===========================
+   DETAIL CARD
+   =========================== */
+.detail-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    max-width: 380px;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.detail-card p {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.detail-card strong {
+    color: var(--dusty-rose);
+}
+
+/* ===========================
+   GIFTS SECTION
+   =========================== */
+.gift-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    max-width: 450px;
+    width: 100%;
+    margin: 2rem auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.gift-card p {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+    color: var(--text-dark);
+}
+
+.gift-card strong {
+    color: var(--dusty-rose);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gift-card small {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--taupe);
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+.btn-primary {
+    display: inline-block;
+    background: var(--dusty-rose);
+    color: white;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 20px rgba(183, 124, 114, 0.35);
+}
+
+.btn-primary:hover {
+    background: var(--deep-rose);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 2px solid var(--dusty-rose);
+    color: var(--dusty-rose);
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--dusty-rose);
+    color: white;
+}
+
+/* ===========================
+   RSVP BUTTONS GROUP
+   =========================== */
+.rsvp-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.btn-rsvp {
+    display: inline-block;
+    border: 2px solid var(--dusty-rose);
+    color: var(--dusty-rose);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.btn-rsvp:hover {
+    background: var(--dusty-rose);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(189, 134, 127, 0.3);
+}
+
+/* ===========================
+   SCROLL REVEAL
+   =========================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 480px) {
+    section {
+        padding: 5rem 1.2rem;
+    }
+
+    h1.names {
+        font-size: clamp(3.5rem, 18vw, 5rem);
+        white-space: normal;
+        /* Permite envolver en móviles si es necesario */
+    }
+
+    h2.section-title {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    .monogram {
+        font-size: 5rem;
+        letter-spacing: 0.8rem;
+    }
+
+    .tagline {
+        font-size: 1.8rem;
+    }
+
+    .verse {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .deco {
+        width: 60vw;
+        opacity: 0.3;
+    }
+
+    .deco-garland-top,
+    .deco-garland-bottom {
+        width: clamp(160px, 55vw, 350px);
+    }
+
+    .detail-card {
+        padding: 2rem 1rem;
+    }
+
+    .detail-card p {
+        font-size: 1.1rem;
+    }
+
+    .parents-grid {
+        gap: 2.5rem;
+    }
+
+    .parent-group p {
+        font-size: 1rem;
+    }
+
+    .gift-card {
+        padding: 2rem 1rem;
+    }
+
+    .gift-card p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===========================
+   MUSIC TOGGLE BUTTON
+   =========================== */
+.music-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    /* Siempre por encima */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.music-btn.visible {
+    opacity: 0.8;
+    visibility: visible;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Equalizer Bars */
+.bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 18px;
+}
+
+.bar {
+    width: 3px;
+    background: var(--dusty-rose);
+    border-radius: 2px;
+    height: 100%;
+}
+
+/* Animación cuando está sonando */
+.music-btn.playing .bar {
+    animation: sound 1s infinite ease-in-out;
+}
+
+.music-btn.playing .bar:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.music-btn.playing .bar:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.music-btn.playing .bar:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.music-btn.playing .bar:nth-child(4) {
+    animation-delay: 0.1s;
+}
+
+/* Si está pausado, ocultamos las barras y mostramos el play */
+.music-btn:not(.playing) .bars {
+    display: none;
+}
+
+.play-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--dusty-rose);
+    display: none;
+    margin-left: 2px;
+    /* Ajuste óptico para centrar el triángulo */
+}
+
+.music-btn:not(.playing) .play-icon {
+    display: block;
+}
+
+@keyframes sound {
+
+    0%,
+    100% {
+        height: 4px;
+    }
+
+    50% {
+        height: 18px;
+    }
+}
+
+/* Si está pausado, las barras se quedan cortas */
+.music-btn:not(.playing) .bar {
+    height: 4px;
+}

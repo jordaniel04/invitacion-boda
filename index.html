@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isac & Yuli | Nos Casamos — 17.04.2026</title>
+    <meta name="description" content="Estás invitado a la boda de Isac y Yuli. 17 de Abril de 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================
+      MUSIC PLAYER
+      ============================ -->
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-toggle" class="music-btn" aria-label="Reproducir/Pausar música">
+        <div class="bars">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <svg class="play-icon" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" fill="currentColor" />
+        </svg>
+    </button>
+
+    <!-- ============================
+      ENVELOPE SCREEN
+     ============================ -->
+    <div id="envelope-wrapper">
+        <div class="heart-box" id="main-envelope">
+            <div class="heart-lid">
+                <svg viewBox="0 0 100 100" class="heart-svg">
+                    <path
+                        d="M50 88.7L45.2 84.3C18.1 59.8 0 43.4 0 27C0 13.6 10.6 3 24 3C31.6 3 38.8 6.5 43.6 12.1L50 19.5L56.4 12.1C61.2 6.5 68.4 3 76 3C89.4 3 100 13.6 100 27C100 43.4 81.9 59.8 54.8 84.3L50 88.7Z"
+                        fill="currentColor" />
+                </svg>
+                <div class="heart-monogram">
+                    <span class="initials">Isac <span class="ampersand">&</span> Yuli</span>
+                    <span class="tap-hint">Toca para abrir</span>
+                </div>
+            </div>
+            <div class="heart-base">
+                <svg viewBox="0 0 100 100" class="heart-svg">
+                    <path
+                        d="M50 88.7L45.2 84.3C18.1 59.8 0 43.4 0 27C0 13.6 10.6 3 24 3C31.6 3 38.8 6.5 43.6 12.1L50 19.5L56.4 12.1C61.2 6.5 68.4 3 76 3C89.4 3 100 13.6 100 27C100 43.4 81.9 59.8 54.8 84.3L50 88.7Z"
+                        fill="currentColor" />
+                </svg>
+                <div class="heart-chocolates">
+                    <!-- Decoración interna simulando bombones -->
+                    <div class="choco c1"></div>
+                    <div class="choco c2"></div>
+                    <div class="choco c3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+     INVITATION CONTENT
+     ============================ -->
+    <main id="main-content" aria-label="Invitación de boda">
+
+        <!-- SECTION 1: BIENVENIDA -->
+        <section id="welcome">
+            <!-- Esquina superior izquierda -->
+            <img src="assets/1.png" class="deco deco-top-left" alt="">
+            <!-- Esquina inferior derecha (1.png rotada) -->
+            <img src="assets/1.png" class="deco deco-bottom-right" alt="">
+
+            <div class="section-body">
+                <p class="verse reveal">
+                    "El amor es sufrido, es benigno...<br>
+                    Todo lo sufre, todo lo cree,<br>
+                    todo lo espera, todo lo soporta."
+                </p>
+                <span class="verse-ref reveal">— 1 Corintios 13:4-7</span>
+
+                <div class="divider reveal"><span class="divider-icon">✦</span></div>
+
+                <div class="monogram reveal">I | Y</div>
+                <p class="tagline reveal">¡Nos Casamos!</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: FOTOS DE LOS NOVIOS -->
+        <section id="couple">
+            <!-- Guirnalda arriba -->
+            <img src="assets/3.png" class="deco deco-garland-top" alt="">
+            <!-- Ramillete decorativo abajo derecha -->
+            <img src="assets/2.png" class="deco deco-corner-br" alt="">
+
+            <div class="section-body reveal">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p class="subtitle-text">Dos almas, un mismo camino.</p>
+                <img src="assets/couple1.jpg" alt="Foto de Isac y Yuli" class="couple-photo">
+                <img src="assets/couple2.jpg" alt="Foto de Isac y Yuli" class="couple-photo reveal">
+            </div>
+        </section>
+
+        <!-- SECTION: PADRES -->
+        <section id="parents">
+            <!-- Esquina superior derecha -->
+            <img src="assets/1.png" class="deco deco-top-right" alt="">
+            <!-- Ramillete decorativo abajo izquierda -->
+            <img src="assets/2.png" class="deco deco-bottom-left" alt="">
+            <div class="section-body">
+                <h2 class="section-title reveal">Con la bendición de nuestros padres</h2>
+                <div class="divider reveal"><span class="divider-icon">✦</span></div>
+
+                <div class="parents-grid reveal">
+                    <div class="parent-group">
+                        <h3>Padres del Novio</h3>
+                        <p>Wilfredo Chup Cruzado</p>
+                        <p>Anita Namoc Navarrete</p>
+                    </div>
+                    <div class="parent-group">
+                        <h3>Padres de la Novia</h3>
+                        <p>Miguel Becerra Narva</p>
+                        <p>Yola Soto Bocanegra</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: COUNTDOWN -->
+        <section id="countdown-section">
+            <!-- Bouquet decorativo esquina superior izquierda -->
+            <img src="assets/4.png" class="deco deco-top-left" alt="" style="opacity: 0.15;">
+            <!-- Bouquet decorativo esquina inferior derecha -->
+            <img src="assets/4.png" class="deco deco-bottom-right" alt="" style="opacity: 0.15;">
+
+            <div class="section-body">
+                <h2 class="section-title reveal">Nos queda muy poco...</h2>
+                <p class="date-display reveal">Viernes · 17 de Abril · 2026</p>
+                <div id="countdown" role="timer" aria-label="Tiempo restante para la boda">
+                    <div class="time-block">
+                        <span id="days">00</span>
+                        <small>Días</small>
+                    </div>
+                    <div class="time-block">
+                        <span id="hours">00</span>
+                        <small>Horas</small>
+                    </div>
+                    <div class="time-block">
+                        <span id="minutes">00</span>
+                        <small>Min</small>
+                    </div>
+                    <div class="time-block">
+                        <span id="seconds">00</span>
+                        <small>Seg</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DETALLES -->
+        <section id="details">
+            <!-- Esquina superior derecha -->
+            <img src="assets/1.png" class="deco deco-top-right" alt="">
+            <!-- Guirnalda horizontal abajo -->
+            <img src="assets/3.png" class="deco deco-garland-bottom" alt="">
+
+            <div class="section-body">
+                <h2 class="section-title reveal">La Cita</h2>
+                <div class="divider reveal"><span class="divider-icon">✦</span></div>
+
+                <div class="detail-card reveal">
+                    <p>📅 <strong>Fecha:</strong> 17 de Abril, 2026</p>
+                    <p>⏰ <strong>Hora:</strong> 3:00 PM</p>
+                    <p>📍 <strong>Lugar:</strong> Hacienda Blas</p>
+                    <a href="https://maps.app.goo.gl/Jktt2C6yTCiGhmAd9" target="_blank" class="btn-primary">Ver en el
+                        Mapa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: REGALOS -->
+        <section id="gifts">
+            <!-- Esquina superior izquierda -->
+            <img src="assets/1.png" class="deco deco-top-left" alt="">
+            <!-- Guirnalda abajo -->
+            <img src="assets/3.png" class="deco deco-garland-bottom" alt="">
+
+            <div class="section-body">
+                <h2 class="section-title reveal">Lluvia de Bendiciones</h2>
+                <div class="divider reveal"><span class="divider-icon">✦</span></div>
+                <p class="reveal subtitle-text">Tu presencia es nuestro mayor regalo, pero si deseas darnos un detalle,
+                    lo que nazca de tu corazón será bienvenido.</p>
+
+                <div class="gift-card reveal">
+                    <p><strong>BCP Soles:</strong> 57073284157054</p>
+                    <p><strong>CCI:</strong> 00257017328415705409</p>
+                    <small>A nombre de Isac & Yuli</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: RSVP -->
+        <section id="rsvp">
+            <!-- Ramillete en esquina superior izquierda -->
+            <img src="assets/2.png" class="deco deco-top-left" alt="">
+            <!-- Esquina inferior derecha -->
+            <img src="assets/1.png" class="deco deco-bottom-right" alt="">
+
+            <div class="section-body">
+                <h2 class="section-title reveal">Confirma tu Asistencia</h2>
+                <div class="divider reveal"><span class="divider-icon">✦</span></div>
+                <p class="reveal subtitle-text">Tu presencia es nuestro mejor regalo.</p>
+                <p class="reveal" style="font-size:0.85rem; color:var(--text-light);">
+                    Por favor confirma antes del <strong>01 de Abril</strong>.
+                </p>
+                <div class="rsvp-buttons reveal">
+                    <a href="https://wa.me/51978631733?text=Confirmo%20mi%20asistencia%20a%20su%20boda!" target="_blank"
+                        class="btn-rsvp">Isac (Novio)</a>
+                    <a href="https://wa.me/51931419530?text=Confirmo%20mi%20asistencia%20a%20su%20boda!" target="_blank"
+                        class="btn-rsvp">Yuli (Novia)</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
