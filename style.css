@@ -433,6 +433,16 @@ h2.section-title {
     margin: 0 auto;
 }
 
+.welcome-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 1.5rem auto 0;
+    line-height: 1.6;
+    font-style: italic;
+}
+
 .verse-ref {
     font-family: var(--font-serif);
     font-size: 1.2rem;
@@ -543,7 +553,7 @@ h2.section-title {
 
 .date-display {
     font-family: var(--font-serif);
-    font-size: clamp(1rem, 3.5vw, 1.4rem);
+    font-size: clamp(1.3rem, 3.5vw, 1.4rem);
     letter-spacing: 3px;
     opacity: 0.85;
     margin-bottom: 0.5rem;
@@ -574,6 +584,15 @@ h2.section-title {
     font-size: 1.1rem;
     margin: 0.3rem 0;
     color: var(--text-dark);
+}
+
+.parent-name {
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
 /* ===========================
@@ -730,6 +749,19 @@ h2.section-title {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.reveal-photo {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 1.5s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.5s ease-out !important;
+}
+
+.reveal-photo.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
 }
 
 /* ===========================
