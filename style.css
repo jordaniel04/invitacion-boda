@@ -243,6 +243,10 @@ section {
     background-color: var(--white);
 }
 
+#godparents {
+    background-color: var(--cream);
+}
+
 #countdown-section {
     background-color: var(--deep-rose);
     color: var(--white);
@@ -592,6 +596,15 @@ h2.section-title {
     color: var(--text-dark);
     display: block;
     line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.godparent-name {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    display: block;
+    line-height: 1.2;
     margin-bottom: 0.5rem;
 }
 
